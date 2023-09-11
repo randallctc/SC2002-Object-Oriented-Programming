@@ -1,4 +1,4 @@
-public class SalePerson {
+public class SalePerson implements Comparable<SalePerson> {
     private String firstName;
     private String lastName;
     private int totalSales;
