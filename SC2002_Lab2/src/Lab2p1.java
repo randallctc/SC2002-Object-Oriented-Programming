@@ -1,8 +1,8 @@
 import java.util.*;
 public class Lab2p1{
     public static void main(String[] args){
-    int choice;
     Scanner sc = new Scanner(System.in);
+    int choice;
     do {
         System.out.println("Perform the following methods:");
         System.out.println("1: multiplication test");
@@ -20,119 +20,41 @@ public class Lab2p1{
             case 2:
                 int firstInt, secondInt;
                 System.out.println("What is first integer?");
-                Scanner scanner = new Scanner(System.in);
-                if(scanner.hasNextInt()){
-                    firstInt = scanner.nextInt();
-                }
-                else{
-                    System.out.println("Invalid integer.");
-                    scanner.close();
-                    return;
-                }
+                firstInt = sc.nextInt();
                 System.out.println("What is second integer?");
-                Scanner scannner = new Scanner(System.in);
-                if(scannner.hasNextInt()){
-                    secondInt = scannner.nextInt();
-                }
-                else{
-                    System.out.println("Invalid integer.");
-                    scannner.close();
-                    return;
-                }
+                secondInt = sc.nextInt();
                 System.out.println(firstInt + "/" + secondInt + " = " + divide(firstInt, secondInt));
                 break;
             case 3: 
                 int firrstInt, seccondInt;
                 System.out.println("What is first integer?");
-                Scanner scannnner = new Scanner(System.in);
-                if(scannnner.hasNextInt()){
-                    firrstInt = scannnner.nextInt();
-                }
-                else{
-                    System.out.println("Invalid integer.");
-                    scannnner.close();
-                    return;
-                }
+                firrstInt = sc.nextInt();
                 System.out.println("What is second integer?");
-                Scanner scannnnner = new Scanner(System.in);
-                if(scannnnner.hasNextInt()){
-                    seccondInt = scannnnner.nextInt();
-                }
-                else{
-                    System.out.println("Invalid integer.");
-                    scannnnner.close();
-                    return;
-                }
+                seccondInt = sc.nextInt();
                 System.out.println(firrstInt + "%" + seccondInt + " = " + modulus(firrstInt, seccondInt));
                 break;
             case 4:
                 System.out.println("Enter integer: ");
-                Scanner sc1 = new Scanner(System.in);
-                if(sc1.hasNextInt()){
-                    int countInt = sc1.nextInt();
-                    if(countInt < 0){
-                        System.out.println("Error Input!!");
-                        sc1.close();
-                        return;
-                    }
-                    else{
-                        System.out.println("Number of Digits: " + countDigits(countInt));
-                    }
-                }
-                else{
-                    System.out.println("Please input an integer.");
-                    sc1.close();
-                    return;
-                }
+                int countInt = sc.nextInt();
+                System.out.println("Number of Digits: " + countDigits(countInt));
                 break;
             case 5:
                 int positionInt; 
                 System.out.println("Enter integer: ");
-                Scanner sc2 = new Scanner(System.in);
-                if(sc2.hasNextInt()){
-                    positionInt = sc2.nextInt();
-                }
-                else{
-                    System.out.println("Please input an integer.");
-                    sc2.close();
-                    return;
-                }
+                positionInt = sc.nextInt();
                 System.out.println("Enter digit: ");
-                Scanner sc3 = new Scanner(System.in);
-                if(sc3.hasNextInt()){
-                    int digitToFind = sc3.nextInt();
-                    if(digitToFind >= 10){
-                        System.out.println("Please enter single digit.");
-                        sc3.close();
-                        return;
-                    }
-                    System.out.println("Position: " + position(positionInt, digitToFind));
-                }
-                else{
-                    System.out.println("Please input an integer.");
-                    sc3.close();
-                    return;
-                }
+                int digitToFind = sc.nextInt();
+                System.out.println("Position: " + position(positionInt, digitToFind));
                 break;
             case 6: 
                 System.out.println("Enter positive number: ");
                 long n;
-                Scanner sc4 = new Scanner(System.in);
-                if(sc4.hasNextLong()){
-                    n = sc4.nextLong();
-                    if(n < 0){
-                        System.out.println("Error Input!!");
-                        sc4.close();
-                        return;
-                    }
-                }
-                else{
+                n = sc.nextLong();
+                if(n < 0){
                     System.out.println("Error Input!!");
-                    sc4.close();;
                     return;
                 }
                 System.out.println("oddDigits = " + extractOddDigits(n));
-                sc4.close();
                 break;
             case 7: System.out.println("Program terminating ….");
             }
@@ -145,23 +67,15 @@ public class Lab2p1{
         Scanner scanner1 = new Scanner(System.in);
         for(int i = 0; i < 5; i++){
             Random random = new Random();
-            int int1 = random.nextInt(9) + 1;
-            int int2 = random.nextInt(9) + 1;
+            int int1 = random.nextInt(10);
+            int int2 = random.nextInt(10);
             System.out.println("How much is " + int1 + " * " + int2 + "?");
-            if(scanner1.hasNextInt()){
-                int answer = scanner1.nextInt();
-                if(answer == (int1 * int2)){
+            if((int1*int2) == scanner1.nextInt()){
                     correct++;
                 }
-            }
-            else{
-                System.out.println("Invalid answer.");
-                scanner1.close();
-                return;
-            }
+
         }
         System.out.println(correct +" answers out of 5 are correct.");
-        scanner1.close();
     }
 
     public static int divide(int m, int n){
